@@ -1,0 +1,25 @@
+{
+  "name": "njs-health-check-injector",
+  "version": "0.0.1",
+  "description": "Healtcheck Express",
+  "main": "build/api/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wakamayu/njs-health-check-injector.git"
+  },
+  "keywords": [
+    "njs-health-check-injector"
+  ],
+  "author": "Carlos Enrique",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wakamayu/njs-health-check-injector/issues"
+  },
+  "homepage": "https://github.com/wakamayu/njs-health-check-injector#readme",
+  "dependencies": {
+    "yaml": "^2.1.1"
+  }
+}
