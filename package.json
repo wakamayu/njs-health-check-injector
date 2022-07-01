@@ -1,10 +1,12 @@
 {
-  "name": "njs-health-check-injector",
+  "name": "@wakamayu/njs-health-check-injector",
   "version": "0.0.1",
   "description": "Healtcheck Express",
-  "main": "build/api/index.js",
+  "main": "app/health.js",
   "scripts": {
-    "test": "npm test"
+    "start": "npx babel src --out-dir app --minified   --extensions .ts,.js && node app/example/app.js",
+    "compile": "npx babel src --out-dir app --minified   --extensions .ts,.js",
+    "test": "npx babel src --out-dir app --extensions .ts,.js && jest --config ./jest.config.js --forceExit --coverage --detectOpenHandles --coverageDirectory=output/coverage/jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,24 @@
   },
   "homepage": "https://github.com/wakamayu/njs-health-check-injector#readme",
   "dependencies": {
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "properties-reader": "^2.2.0",
+    "properties-to-json": "^0.2.1",
     "yaml": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-flow": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
   }
 }

@@ -1,0 +1,41 @@
+import ConfigureProperty from './configure-property.api';
+import ConfigureYaml from './configure-yaml.api';
+
+let TYPE_CONFIG = {
+    "Properties": new ConfigureProperty(),
+    "YAML": new ConfigureYaml()
+}
+
+class FactoryConfigure {
+    urlFile;
+    typeConfig;
+    healtCheckModel;
+    constructor() {
+        this.urlFile = "";
+        this.typeConfig = "YAML";
+        this.healtCheckModel = null;
+    }
+
+    configure(urlFile, typeConfig) {
+        this.urlFile = urlFile;
+        this.typeConfig = typeConfig;
+    }
+
+    isValid() {
+        return this.healtCheckModel != null && Obejct.keys(this.healtCheckModel).length > 0;
+    }
+
+    build() {
+        if (this.typeConfig != null && this.isValid(this.urlFile)) {
+            let config = TYPE_CONFIG[this.typeConfig];
+            if (config) {
+                this.healtCheckModel = config.build();
+            }
+        }
+    }
+
+    get() {
+        return this.healtCheckModel;
+    }
+
+}
