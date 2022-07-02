@@ -1,3 +1,3 @@
 export enum Property {
-    YAML, PROPERTIES
+    YAML = 'YAML', PROPERTIES = 'PROPERTIES'
 }

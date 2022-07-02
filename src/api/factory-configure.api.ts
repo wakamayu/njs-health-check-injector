@@ -30,12 +30,13 @@ export default class FactoryConfigure {
         return Object.assign(new ConfigureModel(), identedJson);
     }
 
-    readYaml(fileConfig: String) {
-        let file = readFileSync(fileConfig, 'utf8');
+    readYaml(fileConfig: string) {
+        let file = readFileSync(fileConfig, { encoding: 'utf8' });
         return parse(file)
     }
-    readProperties(fileConfig: String) {
-        let file = readFileSync(fileConfig, 'utf8');
+
+    readProperties(fileConfig: string) {
+        let file = readFileSync(fileConfig, { encoding: 'utf8' });
         return propertiesToJson(file);
     }
 
@@ -46,7 +47,16 @@ export default class FactoryConfigure {
         }
         return false;
     }
+
     build() {
-        return this.read(this.properties);
+        this.configureModel = this.read(this.properties);
+    }
+
+    get healthCheckModel() {
+        return this.configureModel.healthcheck;
+    }
+
+    isValid(): Boolean {
+        return this.configureModel != null && this.configureModel.healthcheck != null && this.configureModel.healthcheck.tracer != null && this.configureModel.healthcheck.tracer.length > 0;
     }
 }

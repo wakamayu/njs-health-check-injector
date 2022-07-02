@@ -1,8 +1,0 @@
-import {readFileSync} from 'fs';
-import { parse, stringify } from 'yaml';
-
-export default class ConfigureYaml{
-    build(){
-        return parse(readFileSync('/home/ixti/example.yml', 'utf8'))
-    }
-}

@@ -7,12 +7,12 @@ import InjectPointHealth from './inject-point-health.api';
 
 
 const router = express.Router();
-console.log(Property)
+const injectPointHealth = new InjectPointHealth()
 var ApplicationHealth = {
     configure: function health(properties: PropertiesHealthCheck) {
-        console.log(properties)
-        new InjectPointHealth().onStart(properties);
-        router.use(HealthResource)
+        injectPointHealth.onStart(properties);
+        console.log(HealthResource)
+        router.use(HealthResource(injectPointHealth.factoryHealth))
         return router;
     },
     Property

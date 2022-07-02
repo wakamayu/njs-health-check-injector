@@ -4,8 +4,8 @@
   "description": "Healtcheck Express",
   "main": "app/health.js",
   "scripts": {
-    "start": "npx babel src --out-dir app --minified   --extensions .ts,.js && node app/example/app.js",
-    "compile": "npx babel src --out-dir app --minified   --extensions .ts,.js",
+    "start": "nodemon app/example/app.js",
+    "compile": "npx babel --watch src --out-dir app --extensions .ts,.js",
     "test": "npx babel src --out-dir app --extensions .ts,.js && jest --config ./jest.config.js --forceExit --coverage --detectOpenHandles --coverageDirectory=output/coverage/jest"
   },
   "repository": {
@@ -24,8 +24,10 @@
   "dependencies": {
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
+    "nodemon": "^2.0.18",
     "properties-reader": "^2.2.0",
     "properties-to-json": "^0.2.1",
+    "telnet-client": "^2.0.3",
     "yaml": "^2.1.1"
   },
   "devDependencies": {
@@ -37,6 +39,7 @@
     "@babel/preset-env": "^7.18.6",
     "@babel/preset-flow": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
+    "@types/node": "^18.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",

@@ -1,8 +1,10 @@
 export enum TypeStatus {
-    AVAILABILITY,
-    UNAVAILABILITY,
-    CRITICAL,
-    UP,
-    DOWN
+    AVAILABILITY = 'AVAILABILITY',
+    UNAVAILABILITY = 'UNAVAILABILITY',
+    CRITICAL = 'CRITICAL',
+    UP = 'UP',
+    DOWN = 'DOWN'
+
 
 }
+

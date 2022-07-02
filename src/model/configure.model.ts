@@ -1,7 +1,7 @@
 import HealthCheckModel from "./health-check.model";
 
 export default class ConfigureModel {
-    _healthcheck: HealthCheckModel;
+    private _healthcheck: HealthCheckModel;
 
     get healthcheck(): HealthCheckModel {
         return this._healthcheck

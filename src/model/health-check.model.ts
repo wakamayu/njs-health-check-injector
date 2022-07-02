@@ -2,13 +2,13 @@ import { TypeStatus } from "../enums/type-status.enums";
 import TracerModel from "./tracer.model";
 
 export default class HealthCheckModel {
-    _name: String;
-    _tracer: TracerModel[];
-    _liveness: String[];
-    _rediness: String[];
-    _webhook: String;
-    _status: TypeStatus;
-    //
+    private _name: String;
+    private _tracer: TracerModel[];
+    private _liveness: String[];
+    private _rediness: String[];
+    private _webhook: String;
+    private _status: TypeStatus;
+
     get name(): String {
         return this._name
     }
@@ -28,7 +28,6 @@ export default class HealthCheckModel {
         return this._status
     }
 
-    //
     set name(_name: String) {
         this._name = _name
     }

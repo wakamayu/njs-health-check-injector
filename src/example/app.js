@@ -14,11 +14,11 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-console.log(Property)
+
 app.use(configure(
     {
-        fileConfig: '.env/health-check.properties',
-        type: Property.PROPERTIES
+        fileConfig: '.env/health-check.yaml',
+        type: Property.YAML
     }
 ));
 

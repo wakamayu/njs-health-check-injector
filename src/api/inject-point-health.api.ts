@@ -1,17 +1,26 @@
 import { existsSync } from "fs";
 import PropertiesHealthCheck from "../interfaces/properties.interfaces";
 import FactoryConfigure from "../api/factory-configure.api"
+import FactoryHealth from "./factory-health.api";
+
 export default class InjectPointHealth {
 
+    private _factoryHealth: FactoryHealth;
+
+    constructor() {
+        this._factoryHealth = new FactoryHealth();
+    }
     onStart(properties: PropertiesHealthCheck) {
         let factoryConfigure = new FactoryConfigure();
-        console.log(properties)
-        console.log(existsSync(properties.fileConfig))
-        console.log(factoryConfigure.configure(properties))
         if (existsSync(properties.fileConfig) && factoryConfigure.configure(properties)) {
-            console.log(factoryConfigure.build());
+            factoryConfigure.build();
         }
+        this._factoryHealth.configure(factoryConfigure);
 
+    }
+
+    get factoryHealth(): FactoryHealth {
+        return this._factoryHealth
     }
 
 }
