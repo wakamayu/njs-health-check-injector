@@ -20,7 +20,7 @@ export class AnnotadtedNamed {
 }
 
 export function Named(value: String): any {
-    return function (target) {
+    return function (target: any) {
         let annotated = new Annotated()
         annotated.set("value", value);
         return new AnnotadtedNamed(annotated, target)

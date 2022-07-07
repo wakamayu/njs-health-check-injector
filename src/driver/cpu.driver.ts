@@ -1,16 +1,16 @@
 import { Named } from "../annotated/named.annotation"
-import Driver from "../interfaces/driver.interfaces"
-import tracerModel from "../model/tracer.model"
-import os from 'os'
+import { Driver } from "../interfaces/driver.interfaces"
+import { TracerModel } from "../model/tracer.model"
+import os, { CpuInfo } from 'os'
 import { TypeStatus } from "../enums/type-status.enums"
 
 @Named("CPU")
-export default class CPUDriver implements Driver {
+export class CPUDriver implements Driver {
 
     static INTERVAL: number = 1000
 
-    execute(tracerModel: tracerModel): Promise<tracerModel> {
-        return new Promise<tracerModel>((resolve) => {
+    execute(tracerModel: TracerModel): Promise<TracerModel> {
+        return new Promise<TracerModel>((resolve) => {
 
             var startMeasure = this.newMethod().average()
 
@@ -48,13 +48,18 @@ export default class CPUDriver implements Driver {
     private average() {
         let totalIdle = 0
         let totalTick = 0
-        let cpus = os.cpus()
+        let cpus: CpuInfo[] = os.cpus()
 
         for (var i = 0, len = cpus.length; i < len; i++) {
-            var cpu = cpus[i]
-            for (var type in cpu.times) {
-                totalTick += cpu.times[type]
-            }
+            var cpu: CpuInfo = cpus[i]
+            let times: {
+                user: number,
+                nice: number,
+                sys: number,
+                idle: number,
+                irq: number,
+            } = cpu.times;
+            totalTick = times.user + times.nice + times.sys + times.idle + times.irq
             totalIdle += cpu.times.idle
         }
 

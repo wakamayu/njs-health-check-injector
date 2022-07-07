@@ -1,4 +1,4 @@
 
-import ApplicationHelath from './api/application-health.api'
+import { ApplicationHealth } from './api/application-health.api'
 
-export default ApplicationHelath
+module.exports = ApplicationHealth

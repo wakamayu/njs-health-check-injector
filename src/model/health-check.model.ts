@@ -1,13 +1,14 @@
 import { TypeStatus } from "../enums/type-status.enums";
-import TracerModel from "./tracer.model";
+import { TracerModel } from "./tracer.model";
 
-export default class HealthCheckModel {
-    private _name: String;
-    private _tracer: TracerModel[];
-    private _liveness: String[];
-    private _rediness: String[];
-    private _webhook: String;
-    private _status: TypeStatus;
+export class HealthCheckModel {
+    constructor(private _name: String = "",
+        private _tracer: TracerModel[] = [],
+        private _liveness: String[] = [],
+        private _rediness: String[] = [],
+        private _webhook: String = "",
+        private _status: TypeStatus = TypeStatus.NONE) { }
+
 
     get name(): String {
         return this._name

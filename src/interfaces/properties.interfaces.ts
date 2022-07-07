@@ -1,6 +1,6 @@
 import { TypeConfig } from "../enums/type-config.enums";
 
-export default interface PropertiesHealthCheck {
+export interface PropertiesHealthCheck {
     fileConfig: string;
     type: TypeConfig
 }

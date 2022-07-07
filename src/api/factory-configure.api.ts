@@ -1,12 +1,44 @@
-import PropertiesHealthCheck from "../interfaces/properties.interfaces";
-import TypeConfig from "../enums/type-config.enums";
+import { PropertiesHealthCheck } from "../interfaces/properties.interfaces";
+import { TypeConfig } from "../enums/type-config.enums";
 import { parse } from 'yaml';
 import { readFileSync } from 'fs';
-import ConfigureModel from "../model/configure.model";
+import { ConfigureModel } from "../model/configure.model";
+import { HealthCheckModel } from "../model/health-check.model";
 
-import propertiesToJson from "properties-to-json"
+const propertiesToJSON = (str: string) => {
+    return (
+        str
+            // Concat lines that end with '\'.
+            .replace(/\\\n( )*/g, '')
+            // Split by line breaks.
+            .split('\n')
+            // Remove commented lines:
+            .filter((line) =>
+                /(\#|\!)/.test(line.replace(/\s/g, '').slice(0, 1))
+                    ? false
+                    : line
+            )
+            // Create the JSON:
+            .reduce((obj: any, line) => {
+                // Replace only '=' that are not escaped with '\' to handle separator inside key
+                const colonifiedLine = line.replace(/(?<!\\)=/, ':');
+                const key = colonifiedLine
+                    // Extract key from index 0 to first not escaped colon index
+                    .substring(0, colonifiedLine.search(/(?<!\\):/))
+                    // Remove not needed backslash from key
+                    .replace(/\\/g, '')
+                    .trim();
+                const value = colonifiedLine
+                    .substring(colonifiedLine.search(/(?<!\\):/) + 1)
+                    .trim();
+                obj[key] = value;
+                return obj;
+            }, {})
+    );
+};
 
-export default class FactoryConfigure {
+
+export class FactoryConfigure {
     properties: PropertiesHealthCheck = {
         fileConfig: ".env/health-check.yaml",
         type: TypeConfig.YAML
@@ -35,9 +67,9 @@ export default class FactoryConfigure {
         return parse(file)
     }
 
-    readProperties(fileConfig: string) {
+    readProperties(fileConfig: string): any {
         let file = readFileSync(fileConfig, { encoding: 'utf8' });
-        return propertiesToJson(file);
+        return propertiesToJSON(file);
     }
 
     configure(properties: PropertiesHealthCheck): Boolean {
@@ -52,7 +84,7 @@ export default class FactoryConfigure {
         this.configureModel = this.read(this.properties);
     }
 
-    get healthCheckModel() {
+    get healthCheckModel(): HealthCheckModel {
         return this.configureModel.healthcheck;
     }
 

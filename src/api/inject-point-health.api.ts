@@ -1,9 +1,9 @@
 import { existsSync } from "fs";
-import PropertiesHealthCheck from "../interfaces/properties.interfaces";
-import FactoryConfigure from "../api/factory-configure.api"
-import FactoryHealth from "./factory-health.api";
+import { PropertiesHealthCheck } from "../interfaces/properties.interfaces";
+import { FactoryConfigure } from "../api/factory-configure.api"
+import { FactoryHealth } from "./factory-health.api";
 
-export default class InjectPointHealth {
+export class InjectPointHealth {
 
     private _factoryHealth: FactoryHealth;
 

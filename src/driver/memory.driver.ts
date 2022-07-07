@@ -1,11 +1,11 @@
 import { Named } from "../annotated/named.annotation";
-import Driver from "../interfaces/driver.interfaces";
-import TracerModel from "../model/tracer.model";
+import { Driver } from "../interfaces/driver.interfaces";
+import { TracerModel } from "../model/tracer.model";
 import os from "os"
 import { TypeStatus } from "../enums/type-status.enums";
 
 @Named("MEMORY")
-export default class MemoryDriver implements Driver {
+export class MemoryDriver implements Driver {
 
     execute(tracerModel: TracerModel): Promise<TracerModel> {
         return new Promise((resolve) => {
@@ -24,6 +24,7 @@ export default class MemoryDriver implements Driver {
                 tracerModel.status = TypeStatus.UNAVAILABILITY;
             }
             tracerModel.rate = percent
+
             resolve(tracerModel)
         })
     }

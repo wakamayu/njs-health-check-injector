@@ -1,7 +1,7 @@
 import { TypeStatus } from "../enums/type-status.enums"
-import TracerModel from "./tracer.model"
+import { TracerModel } from "./tracer.model"
 
-export default class ResponseHealthCheckModel {
+export class ResponseHealthCheckModel {
     name: String = ""
     status: TypeStatus = TypeStatus.UP
     data: TracerModel = new TracerModel()

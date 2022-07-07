@@ -1,9 +1,8 @@
-enum TypeStatus {
+export enum TypeStatus {
     AVAILABILITY = 'AVAILABILITY',
     UNAVAILABILITY = 'UNAVAILABILITY',
     CRITICAL = 'CRITICAL',
     UP = 'UP',
-    DOWN = 'DOWN'
+    DOWN = 'DOWN',
+    NONE = 'NONE'
 }
-
-exports.TypeStatus = TypeStatus

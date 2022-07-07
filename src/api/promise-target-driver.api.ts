@@ -1,24 +1,20 @@
 
 import { TypeStatus } from "../enums/type-status.enums";
-import Driver from "../interfaces/driver.interfaces";
-import ResponseHealthCheckModel from "../model/response-health-check.model";
-import ResponseModel from "../model/response.model";
-import TracerModel from "../model/tracer.model";
+import { Driver } from "../interfaces/driver.interfaces";
+import { ResponseModel } from "../model/response.model";
+import { TracerModel } from "../model/tracer.model";
 import { DriverSingleton } from "./driver-singleton.api";
 
 const driverSingleton = DriverSingleton.getInstance();
 
-export default class PromiseTargetDriver {
+export class PromiseTargetDriver {
 
 
-    //private responseHealhCheckModel: ResponseHealthCheckModel
 
-    promise: Promise<TracerModel>[];
+    private promise: Promise<TracerModel>[]
 
     constructor(private tracers: TracerModel[] = []) {
-        //    this.responseHealhCheckModel = new ResponseHealthCheckModel();
-
-
+        this.promise = []
     }
 
     async getValue(): Promise<ResponseModel> {
@@ -42,10 +38,11 @@ export default class PromiseTargetDriver {
         this.promise = []
         this.tracers.forEach((tracerModel: TracerModel) => {
 
-            let driver: Driver = driverSingleton.drivers.get(tracerModel.type.toString())
-            if (driver != null) {
+            let driver: Driver | undefined = driverSingleton.drivers.get(tracerModel.type.toString())
+            if (driver != null && driver != undefined) {
                 this.promise.push(new Promise((resolve, reject) => {
-                    resolve(driver.execute(tracerModel))
+                    if (driver != undefined)
+                        resolve(driver.execute(tracerModel))
                 }))
             }
         })

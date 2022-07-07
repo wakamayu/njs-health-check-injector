@@ -1,6 +1,6 @@
 import { readdirSync } from "fs";
 import { AnnotadtedNamed } from "../annotated/named.annotation";
-import Driver from "../interfaces/driver.interfaces";
+import { Driver } from "../interfaces/driver.interfaces";
 
 export class DriverSingleton {
     private static instance: DriverSingleton;
@@ -11,6 +11,7 @@ export class DriverSingleton {
      * construction calls with the `new` operator.
      */
     private constructor() {
+        this._drivers = new Map<string, Driver>();
     }
 
     /**

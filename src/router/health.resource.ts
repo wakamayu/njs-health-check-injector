@@ -1,9 +1,9 @@
 import { Router } from 'express'
 
-import FactoryHealth from '../api/factory-health.api';
+import { FactoryHealth } from '../api/factory-health.api';
 
 
-export default function (factoryHelath: FactoryHealth): any {
+export function HealthResource(factoryHelath: FactoryHealth): any {
 
     const HealthResource = Router();
 

@@ -1,5 +1,5 @@
-import TracerModel from "../model/tracer.model";
+import { TracerModel } from "../model/tracer.model";
 
-export default interface Driver {
+export interface Driver {
     execute(tracerModel: TracerModel): Promise<TracerModel>;
 }

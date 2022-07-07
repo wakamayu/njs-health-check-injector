@@ -1,11 +1,11 @@
 import { Named } from "../annotated/named.annotation";
 import { TypeStatus } from "../enums/type-status.enums";
-import Driver from "../interfaces/driver.interfaces";
-import TracerModel from "../model/tracer.model";
+import { Driver } from "../interfaces/driver.interfaces";
+import { TracerModel } from "../model/tracer.model";
 import { Telnet } from 'telnet-client'
 
 @Named("IP_PORT")
-export default class TelnetDriver implements Driver {
+export class TelnetDriver implements Driver {
 
     execute(tracerModel: TracerModel): Promise<TracerModel> {
         return new Promise<TracerModel>(async (resolve, reject) => {

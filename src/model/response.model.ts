@@ -1,8 +1,8 @@
 import { TypeStatus } from "../enums/type-status.enums";
-import ResponseHealthCheckModel from "./response-health-check.model";
-import TracerModel from "./tracer.model";
+import { ResponseHealthCheckModel } from "./response-health-check.model";
+import { TracerModel } from "./tracer.model";
 
-export default class ResponseModel {
+export class ResponseModel {
 
     status: TypeStatus
     checks: Array<ResponseHealthCheckModel>

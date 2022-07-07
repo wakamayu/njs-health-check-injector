@@ -1,10 +1,10 @@
-import HealthCheckModel from "../model/health-check.model";
-import ResponseModel from "../model/response.model";
-import TracerModel from "../model/tracer.model";
-import FactoryConfigure from "./factory-configure.api";
-import PromiseTargetDriver from "./promise-target-driver.api";
+import { HealthCheckModel } from "../model/health-check.model";
+import { ResponseModel } from "../model/response.model";
+import { TracerModel } from "../model/tracer.model";
+import { FactoryConfigure } from "./factory-configure.api";
+import { PromiseTargetDriver } from "./promise-target-driver.api";
 
-export default class FactoryHealth {
+export class FactoryHealth {
 
     healthCheckModel: HealthCheckModel;
 

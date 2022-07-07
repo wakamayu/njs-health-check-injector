@@ -1,26 +1,29 @@
 {
-  "presets": [
-    [
-      "@babel/preset-env"
+    "presets": [
+        "@babel/env",
+        "@babel/preset-flow",
+        "@babel/preset-typescript"
     ],
-    "@babel/preset-flow",
-    "@babel/preset-typescript"
-  ],
-  "plugins": [
-    "@babel/plugin-transform-typescript",
-    [
-      "@babel/plugin-proposal-decorators",
-      {
-        "legacy": true
-      }
-    ],
-    [
-      "@babel/plugin-transform-modules-commonjs",
-      {
-        "allowTopLevelThis": true
-      }
-    ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-transform-runtime"
-  ]
+    "plugins": [
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "absoluteRuntime": false,
+                "corejs": false,
+                "helpers": false,
+                "regenerator": true,
+                "version": "7.0.0-beta.0"
+            }
+        ],
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        "@babel/plugin-transform-modules-commonjs",
+        "@babel/proposal-object-rest-spread",
+        "@babel/plugin-transform-typescript",
+        "@babel/plugin-proposal-class-properties",
+    ]
 }

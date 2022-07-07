@@ -5,8 +5,8 @@ const http = require('http')
 const debug = require('debug')
 const debugServer = debug('example:server');
 ``
-const ApplicationHealth = require('../build').default
-console.log(ApplicationHealth.TypeConfig.YAML)
+const ApplicationHealth = require('../build')
+console.log(ApplicationHealth)
 var app = express();
 
 app.use(morgan('dev'));

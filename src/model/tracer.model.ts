@@ -1,42 +1,42 @@
 import { TypeDriver } from "../enums/type-driver.enums"
 import { TypeStatus } from "../enums/type-status.enums"
 
-export default class TracerModel {
-    componentName: string
+export class TracerModel {
+    componentName: string = ""
 
-    name: string
+    name: string = ""
 
-    port: number
+    port: number = 0
 
-    ip: string
+    ip: string = ""
 
-    protocol: string
+    protocol: string = ""
 
-    path: string
+    path: string = ""
 
-    domain: string
+    domain: string = ""
 
-    driver: string
+    driver: string = ""
 
-    min: number
+    min: number = 0
 
-    type: TypeDriver
+    type: TypeDriver = TypeDriver.NONE
 
-    max: number
+    max: number = 0
 
-    free: Boolean
+    free: Boolean = true
 
-    rate: number
+    rate: number = 0
 
-    acceptable: number
+    acceptable: number = 0
 
-    persistenceUnit: string
+    persistenceUnit: string = ""
 
-    initEvaluteTime: number
+    initEvaluteTime: number = 0
 
-    endEvaluateTime: number
+    endEvaluateTime: number = 0
 
-    timeZone: string
+    timeZone: string = ""
 
     status: TypeStatus
 
