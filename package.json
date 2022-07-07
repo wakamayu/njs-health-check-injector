@@ -1,11 +1,11 @@
 {
   "name": "@wakamayu/njs-health-check-injector",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "description": "Healtcheck Express",
   "main": "app/health.js",
   "scripts": {
-    "start": "nodemon app/example/app.js",
-    "compile": "npx babel --watch src --out-dir app --extensions .ts,.js",
+    "start": "nodemon example/app.js",
+    "compile": "rm -f -R build && npx babel --watch  src --out-dir build --extensions .ts",
     "test": "npx babel src --out-dir app --extensions .ts,.js && jest --config ./jest.config.js --forceExit --coverage --detectOpenHandles --coverageDirectory=output/coverage/jest"
   },
   "repository": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/wakamayu/njs-health-check-injector#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
     "nodemon": "^2.0.18",
@@ -35,6 +36,7 @@
     "@babel/core": "^7.18.6",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-decorators": "^7.18.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
     "@babel/plugin-transform-runtime": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
     "@babel/preset-flow": "^7.18.6",

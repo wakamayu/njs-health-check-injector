@@ -1,3 +1,6 @@
-export enum Property {
-    YAML = 'YAML', PROPERTIES = 'PROPERTIES'
+enum TypeConfig {
+    YAML = 'YAML',
+    PROPERTIES = 'PROPERTIES'
 }
+export default TypeConfig
+//module.exports = TypeConfig

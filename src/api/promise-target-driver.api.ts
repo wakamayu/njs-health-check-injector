@@ -26,7 +26,7 @@ export default class PromiseTargetDriver {
         return new Promise<ResponseModel>((resolve, reject) => {
             let responseModel = new ResponseModel()
             tracerModels.forEach((value: TracerModel) => {
-                console.log(value)
+
                 if (value.status == TypeStatus.DOWN) {
                     responseModel.status = TypeStatus.DOWN
                     //    value.status = TypeStatus.DOWN

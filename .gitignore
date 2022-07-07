@@ -122,10 +122,10 @@ typings/
 # next.js build output
 .next
 
-app
+build
 output
 package-lock.json
 
-app
+build
 output
 package-lock.json

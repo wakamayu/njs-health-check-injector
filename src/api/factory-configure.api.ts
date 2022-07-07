@@ -1,5 +1,5 @@
 import PropertiesHealthCheck from "../interfaces/properties.interfaces";
-import { Property } from "../enums/type-config.enums";
+import TypeConfig from "../enums/type-config.enums";
 import { parse } from 'yaml';
 import { readFileSync } from 'fs';
 import ConfigureModel from "../model/configure.model";
@@ -9,7 +9,7 @@ import propertiesToJson from "properties-to-json"
 export default class FactoryConfigure {
     properties: PropertiesHealthCheck = {
         fileConfig: ".env/health-check.yaml",
-        type: Property.YAML
+        type: TypeConfig.YAML
     };
     configureModel: ConfigureModel;
 
@@ -20,10 +20,10 @@ export default class FactoryConfigure {
     read(properties: PropertiesHealthCheck): ConfigureModel {
         let identedJson = {};
         switch (properties.type) {
-            case Property.YAML:
+            case TypeConfig.YAML:
                 identedJson = this.readYaml(properties.fileConfig);
                 break;
-            case Property.PROPERTIES:
+            case TypeConfig.PROPERTIES:
                 identedJson = this.readProperties(properties.fileConfig);
                 break;
         }

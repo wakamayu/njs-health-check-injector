@@ -1,21 +1,19 @@
 
-import express from 'express'
-import { Property } from '../enums/type-config.enums';
+import { Router } from 'express'
 import PropertiesHealthCheck from '../interfaces/properties.interfaces';
-import HealthResource from '../router/health.resource'
+import HealthResource from '../router/health.resource';
 import InjectPointHealth from './inject-point-health.api';
+import TypeConfig from '../enums/type-config.enums';
 
-
-const router = express.Router();
+const router = Router();
 const injectPointHealth = new InjectPointHealth()
+
 var ApplicationHealth = {
-    configure: function health(properties: PropertiesHealthCheck) {
+    Configure: function (properties: PropertiesHealthCheck) {
         injectPointHealth.onStart(properties);
-        console.log(HealthResource)
         router.use(HealthResource(injectPointHealth.factoryHealth))
         return router;
     },
-    Property
+    TypeConfig: TypeConfig
 }
-
-module.exports = ApplicationHealth
+export default ApplicationHealth

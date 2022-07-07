@@ -1,13 +1,12 @@
-import express from 'express'
-import cookieParser from 'cookie-parser';
-import morgan from 'morgan';
-import http from 'http';
-import { configure, Property } from '../api/application-health.api';
-
-import debug from 'debug';
-
-var debugServer = debug('example:server');
-
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const morgan = require('morgan')
+const http = require('http')
+const debug = require('debug')
+const debugServer = debug('example:server');
+``
+const ApplicationHealth = require('../build').default
+console.log(ApplicationHealth.TypeConfig.YAML)
 var app = express();
 
 app.use(morgan('dev'));
@@ -15,10 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(configure(
+
+app.use(ApplicationHealth.Configure(
     {
         fileConfig: '.env/health-check.yaml',
-        type: Property.YAML
+        type: ApplicationHealth.TypeConfig.YAML
     }
 ));
 

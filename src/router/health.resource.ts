@@ -1,9 +1,11 @@
-import express from 'express'
+import { Router } from 'express'
+
 import FactoryHealth from '../api/factory-health.api';
 
-const HealthResource = express.Router();
 
-export default (factoryHelath: FactoryHealth) => {
+export default function (factoryHelath: FactoryHealth): any {
+
+    const HealthResource = Router();
 
     HealthResource.get('/strategy/health', function (req, res, next) {
         factoryHelath.ready().then((value) => {
@@ -23,3 +25,4 @@ export default (factoryHelath: FactoryHealth) => {
 
     return HealthResource
 };
+
