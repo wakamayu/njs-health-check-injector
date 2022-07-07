@@ -5,7 +5,7 @@ import os, { CpuInfo } from 'os'
 import { TypeStatus } from "../enums/type-status.enums"
 
 @Named("CPU")
-export class CPUDriver implements Driver {
+export default class CPUDriver implements Driver {
 
     static INTERVAL: number = 1000
 

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CPUDriver = void 0;
+exports["default"] = void 0;
 
 var _named = require("../annotated/named.annotation");
 
@@ -89,4 +89,4 @@ var CPUDriver = (_dec = (0, _named.Named)("CPU"), _dec(_class = (_class2 = /*#__
 
   return CPUDriver;
 }(), _defineProperty(_class2, "INTERVAL", 1000), _class2)) || _class);
-exports.CPUDriver = CPUDriver;
+exports["default"] = CPUDriver;

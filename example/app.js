@@ -5,8 +5,10 @@ const http = require('http')
 const debug = require('debug')
 const debugServer = debug('example:server');
 ``
-const ApplicationHealth = require('../build')
-console.log(ApplicationHealth)
+const { ApplicationHealth, TypeConfig } = require('../build')
+
+const applicationHealth = new ApplicationHealth()
+
 var app = express();
 
 app.use(morgan('dev'));
@@ -14,11 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
-app.use(ApplicationHealth.Configure(
+app.use(applicationHealth.configure(
     {
         fileConfig: '.env/health-check.yaml',
-        type: ApplicationHealth.TypeConfig.YAML
+        type: TypeConfig.YAML
     }
 ));
 

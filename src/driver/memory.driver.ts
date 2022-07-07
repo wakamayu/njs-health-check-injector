@@ -5,7 +5,7 @@ import os from "os"
 import { TypeStatus } from "../enums/type-status.enums";
 
 @Named("MEMORY")
-export class MemoryDriver implements Driver {
+export default class MemoryDriver implements Driver {
 
     execute(tracerModel: TracerModel): Promise<TracerModel> {
         return new Promise((resolve) => {

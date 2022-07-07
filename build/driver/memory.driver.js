@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MemoryDriver = void 0;
+exports["default"] = void 0;
 
 var _named = require("../annotated/named.annotation");
 
@@ -55,4 +55,4 @@ var MemoryDriver = (_dec = (0, _named.Named)("MEMORY"), _dec(_class = /*#__PURE_
 
   return MemoryDriver;
 }()) || _class);
-exports.MemoryDriver = MemoryDriver;
+exports["default"] = MemoryDriver;

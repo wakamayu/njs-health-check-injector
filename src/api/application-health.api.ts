@@ -7,7 +7,7 @@ import { HealthResource } from '../router/health.resource';
 
 const router = Router();
 const injectPointHealth = new InjectPointHealth()
-console.log(HealthResource)
+
 export class ApplicationHealth {
     configure(properties: PropertiesHealthCheck) {
         injectPointHealth.onStart(properties);

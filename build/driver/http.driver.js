@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.HTTPDriver = void 0;
+exports["default"] = void 0;
 
 var _named = require("../annotated/named.annotation");
 
@@ -53,4 +53,4 @@ var HTTPDriver = (_dec = (0, _named.Named)("HTTP"), _dec(_class = /*#__PURE__*/f
 
   return HTTPDriver;
 }()) || _class);
-exports.HTTPDriver = HTTPDriver;
+exports["default"] = HTTPDriver;

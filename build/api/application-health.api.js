@@ -19,7 +19,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var router = (0, _express.Router)();
 var injectPointHealth = new _injectPointHealth.InjectPointHealth();
-console.log(_health.HealthResource);
 
 var ApplicationHealth = /*#__PURE__*/function () {
   function ApplicationHealth() {

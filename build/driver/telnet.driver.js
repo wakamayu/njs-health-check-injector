@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TelnetDriver = void 0;
+exports["default"] = void 0;
 
 var _named = require("../annotated/named.annotation");
 
@@ -88,4 +88,4 @@ var TelnetDriver = (_dec = (0, _named.Named)("IP_PORT"), _dec(_class = /*#__PURE
 
   return TelnetDriver;
 }()) || _class);
-exports.TelnetDriver = TelnetDriver;
+exports["default"] = TelnetDriver;

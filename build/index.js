@@ -2,4 +2,9 @@
 
 var _applicationHealth = require("./api/application-health.api");
 
-module.exports = _applicationHealth.ApplicationHealth;
+var _typeConfig = require("./enums/type-config.enums");
+
+module.exports = {
+  ApplicationHealth: _applicationHealth.ApplicationHealth,
+  TypeConfig: _typeConfig.TypeConfig
+};

@@ -6,7 +6,7 @@ import { Driver } from "../interfaces/driver.interfaces";
 import { TracerModel } from "../model/tracer.model";
 
 @Named("HTTP")
-export class HTTPDriver implements Driver {
+export default class HTTPDriver implements Driver {
 
 
     execute(tracerModel: TracerModel): Promise<TracerModel> {

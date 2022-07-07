@@ -1,6 +1,7 @@
 import { readdirSync } from "fs";
-import { AnnotadtedNamed } from "../annotated/named.annotation";
 import { Driver } from "../interfaces/driver.interfaces";
+
+import { AnnotadtedNamed } from "../annotated/named.annotation";
 
 export class DriverSingleton {
     private static instance: DriverSingleton;

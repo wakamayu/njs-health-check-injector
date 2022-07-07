@@ -5,7 +5,7 @@ import { TracerModel } from "../model/tracer.model";
 import { Telnet } from 'telnet-client'
 
 @Named("IP_PORT")
-export class TelnetDriver implements Driver {
+export default class TelnetDriver implements Driver {
 
     execute(tracerModel: TracerModel): Promise<TracerModel> {
         return new Promise<TracerModel>(async (resolve, reject) => {
